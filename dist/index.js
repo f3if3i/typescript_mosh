@@ -1,4 +1,20 @@
 "use strict";
-var user = [1, 'Mosh'];
-user.push(1);
-var mySize = 1 /* Medium */;
+var employee = {
+    id: 1,
+    name: "Mosh",
+    retire: function (date) {
+        console.log(date);
+    },
+};
+// union type
+function kgToLbs(weight) {
+    // narrowing
+    if (typeof weight === "number") {
+        return weight * 2.2;
+    }
+    else {
+        return parseInt(weight) * 2.2;
+    }
+}
+kgToLbs(10);
+kgToLbs("10kg");
