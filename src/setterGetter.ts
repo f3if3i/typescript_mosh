@@ -1,19 +1,4 @@
-class Account1 {
-  // readonly id: number;
-  // owner: string;
-  // private _balance: number;
-  // nickname?: string;
-  // transaction?: number[]
-
-  // constructor(id: number, owner: string, balance: number) {
-  //   this.id = id;
-  //   this.owner = owner;
-  //   this._balance = balance;
-  // }
-
-  // readonly id: number;
-  // owner: string;
-  // private _balance: number;
+class Account {
   nickname?: string;
   transaction?: number[];
 
@@ -31,22 +16,26 @@ class Account1 {
     this._balance += amount;
   }
 
-  getBalance(): number {
+  // getter
+  get balance(): number {
     return this._balance;
+  }
+
+  // setter
+  set balance(value: number) {
+    if (value < 0) {
+      throw new Error("Invalid value");
+    }
+    this._balance = value;
   }
 
   private calculateTax() {}
 }
 
-let account1 = new Account1(1, "Mosh", 0);
+let account = new Account(1, "Mosh", 0);
 account.deposit(100);
 // console.log(account._balance)
 // Object
 console.log(typeof account);
 // boolean
 console.log(account instanceof Account);
-
-// Union
-// if (typeof someObj === 'number') {}
-
-// access control/modifier
